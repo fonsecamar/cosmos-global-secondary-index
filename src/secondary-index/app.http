@@ -1,0 +1,17 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+
+POST http://localhost:7185/api/CreateAccountFunction
+{
+    "Name": "Account Holder 1",
+    "Ssn": 1234567890,
+    "Email": "account1@banksample.com",
+    "PhoneNumber": "123-123-1234"
+}
+
+####
+
+GET http://localhost:7185/api/accounts/a2bd9093-132e-40df-834e-84bdf80c284e
+
+####
+
+GET http://localhost:7185/api/accounts/ssn/1234567890
