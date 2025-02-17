@@ -11,6 +11,8 @@ It also includes a function to process changes from the Cosmos DB change feed to
 - .NET 9 SDK
 - Azure Functions Core Tools
 - Azure Cosmos DB account
+	- accounts collection: Partition Key `/id` (id represents account id)
+	- accountIndex collection: Partition Key `/id` (id represents ssn - or any unique attribute used as alternate filter)
 
 ## API Endpoints
 
@@ -43,6 +45,14 @@ Update the `local.settings.json` file with your Cosmos DB connection string and 
 1. Clone the repository.
 2. Navigate to the project directory.
 3. Run the application using the Azure Functions Core Tools.
+
+## Note
+
+> - This sample assumes a single account per SSN.
+>
+> - If multiple accounts are allowed per SSN, the accountIndex collection should either have another partition key to allow multiple entries per SSN or store an array of account IDs.
+>
+> - Global Secondary Index should be used with exact match queries.
 
 ## License
 
